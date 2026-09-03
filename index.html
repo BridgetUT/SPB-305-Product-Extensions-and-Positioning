@@ -70,11 +70,16 @@
         }
         
         .core-concept {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            background: linear-gradient(135deg, #1b4f8c 0%, #123a66 100%);
             color: white;
             border-radius: 15px;
             padding: 20px;
             margin: 15px 0;
+        }
+
+        .core-concept p,
+        .core-concept strong {
+            color: #ffffff;
         }
         
         .extension-list {
@@ -115,7 +120,7 @@
         }
         
         .thinking-prompt h4 {
-            color: #27ae60;
+            color: #166534;
             margin-bottom: 10px;
         }
         
@@ -136,13 +141,13 @@
         
         .nav-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin: 20px 0;
         }
         
         .nav-button {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            background: linear-gradient(135deg, #1b4f8c 0%, #123a66 100%);
             color: white;
             border: none;
             padding: 20px;
@@ -165,7 +170,7 @@
         
         .nav-button p {
             font-size: 0.9rem;
-            opacity: 0.9;
+            opacity: 1;
         }
         
         .back-button {
@@ -209,7 +214,7 @@
             border-radius: 15px;
             padding: 25px;
             margin: 20px 0;
-            color: #fff;
+            color: #5c1a2e;
         }
         
         .scenario h3 {
@@ -218,7 +223,7 @@
         }
         
         .question-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4550b0 0%, #5a3a85 100%);
             color: white;
             padding: 20px;
             border-radius: 15px;
@@ -231,6 +236,20 @@
             padding: 25px;
             margin: 20px 0;
             border-left: 5px solid #3498db;
+        }
+
+        .positioning-map-wrap {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .positioning-map {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
         .case-study {
@@ -261,9 +280,76 @@
             padding: 20px;
             margin: 20px 0;
         }
+
+        .priority-ranking {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .priority-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .priority-option-text h4 {
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .priority-select-label {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .priority-select {
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 2px solid #cbd5e1;
+            font-size: 1rem;
+            background: white;
+            color: #333;
+        }
+
+        .priority-select:focus-visible,
+        .rationale-input:focus-visible {
+            outline: 3px solid #123a66;
+            outline-offset: 2px;
+        }
+
+        .rationale-input {
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #333;
+            resize: vertical;
+        }
+
+        @media (max-width: 600px) {
+            .priority-option {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
         
         button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4550b0 0%, #5a3a85 100%);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -305,14 +391,50 @@
                 <p>The <strong>sports marketer's role</strong> is to create and use product extensions to help reach <strong>organizational goals and objectives</strong> while bringing fans positive and unique experiences that <strong>complement</strong> the core product.</p>
             </div>
             
-            <div class="progress-indicator">
+            <div class="progress-indicator" role="progressbar" aria-label="Activities completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressIndicator">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
         </div>
 
         <!-- Main Content Area -->
-        <div id="main-content">
-            
+        <div id="main-content" role="main">
+
+            <!-- Activity Navigation -->
+            <nav class="activity-nav" aria-labelledby="activities-heading">
+                <h3 id="activities-heading">Critical Thinking Activities</h3>
+                <div class="nav-buttons">
+                    <button class="nav-button" data-activity="activity1">
+                        <h4>Activity 1: MLS Franchise Strategy</h4>
+                        <p>Design digital products for a new team</p>
+                    </button>
+                    
+                    <button class="nav-button" data-activity="activity2">
+                        <h4>Activity 2: LPGA vs NFL</h4>
+                        <p>Analyze differentiation strategies</p>
+                    </button>
+                    
+                    <button class="nav-button" data-activity="activity3">
+                        <h4>Activity 3: Perceptual Mapping</h4>
+                        <p>Map FC Cincinnati's competitive position</p>
+                    </button>
+                    
+                    <button class="nav-button" data-activity="activity4">
+                        <h4>Activity 4: Innovation Framework</h4>
+                        <p>Evaluate NBA's streaming innovation</p>
+                    </button>
+                    
+                    <button class="nav-button" data-activity="activity5">
+                        <h4>Activity 5: Budget Allocation</h4>
+                        <p>Choose the best extension investment</p>
+                    </button>
+                    
+                    <button class="nav-button" data-activity="synthesis">
+                        <h4>Synthesis Challenge</h4>
+                        <p>Apply all concepts to hockey team case</p>
+                    </button>
+                </div>
+            </nav>
+
             <!-- Core Concepts Review -->
             <div class="section">
                 <h2>Core Concepts Recap</h2>
@@ -385,46 +507,10 @@
                     <p><strong>Fan segmentation helps you understand how important these extensions are to different fans and how to use them as marketing tools.</strong> Different fan segments will value different extensions - families might prioritize mascots and kids clubs, while corporate clients might focus on luxury boxes and premium experiences.</p>
                 </div>
             </div>
-
-            <!-- Activity Navigation -->
-            <div class="activity-nav">
-                <h3>Critical Thinking Activities</h3>
-                <div class="nav-buttons">
-                    <button class="nav-button" data-activity="activity1">
-                        <h4>Activity 1: MLS Franchise Strategy</h4>
-                        <p>Design digital products for a new team</p>
-                    </button>
-                    
-                    <button class="nav-button" data-activity="activity2">
-                        <h4>Activity 2: LPGA vs NFL</h4>
-                        <p>Analyze differentiation strategies</p>
-                    </button>
-                    
-                    <button class="nav-button" data-activity="activity3">
-                        <h4>Activity 3: Perceptual Mapping</h4>
-                        <p>Map FC Cincinnati's competitive position</p>
-                    </button>
-                    
-                    <button class="nav-button" data-activity="activity4">
-                        <h4>Activity 4: Innovation Framework</h4>
-                        <p>Evaluate NBA's streaming innovation</p>
-                    </button>
-                    
-                    <button class="nav-button" data-activity="activity5">
-                        <h4>Activity 5: Budget Allocation</h4>
-                        <p>Choose the best extension investment</p>
-                    </button>
-                    
-                    <button class="nav-button" data-activity="synthesis">
-                        <h4>Synthesis Challenge</h4>
-                        <p>Apply all concepts to hockey team case</p>
-                    </button>
-                </div>
-            </div>
         </div>
 
         <!-- Activity 1 -->
-        <div id="activity1" class="hidden">
+        <div id="activity1" class="hidden" role="main">
             <button class="back-button" id="back1">← Back to Activities</button>
             <div class="section">
                 <h2>Activity 1: New MLS Franchise Strategy</h2>
@@ -448,37 +534,125 @@
                         <li>How can technology help you compete with established teams?</li>
                         <li>What would make fans choose YOU over other entertainment options?</li>
                     </ul>
-                    <button id="reveal1">Reveal Strategic Framework</button>
                 </div>
+
+                <div class="question-box">
+                    <h4>Rank Your Top 3 Priorities</h4>
+                    <p>Review the three product extension options below, then assign each one a priority ranking. 1 = highest priority for launching this new franchise.</p>
+                </div>
+
+                <div class="priority-ranking" id="ranking1">
+                    <div class="priority-option">
+                        <div class="priority-option-text">
+                            <h4>Hyper-Local Community App</h4>
+                            <p>An app that connects fans to local businesses, player community involvement, and neighborhood pride.</p>
+                        </div>
+                        <label class="priority-select-label" for="rank1-community">Priority
+                            <select id="rank1-community" class="priority-select" data-group="ranking1">
+                                <option value="">Select...</option>
+                                <option value="1">1st Priority</option>
+                                <option value="2">2nd Priority</option>
+                                <option value="3">3rd Priority</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="priority-option">
+                        <div class="priority-option-text">
+                            <h4>Interactive Stadium Technology</h4>
+                            <p>AR experiences, order-to-seat concessions, instant replays on personal devices in the stands.</p>
+                        </div>
+                        <label class="priority-select-label" for="rank1-stadium">Priority
+                            <select id="rank1-stadium" class="priority-select" data-group="ranking1">
+                                <option value="">Select...</option>
+                                <option value="1">1st Priority</option>
+                                <option value="2">2nd Priority</option>
+                                <option value="3">3rd Priority</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="priority-option">
+                        <div class="priority-option-text">
+                            <h4>Content Creation Platform</h4>
+                            <p>Behind-the-scenes access, player vlogs, and fan-generated content contests.</p>
+                        </div>
+                        <label class="priority-select-label" for="rank1-content">Priority
+                            <select id="rank1-content" class="priority-select" data-group="ranking1">
+                                <option value="">Select...</option>
+                                <option value="1">1st Priority</option>
+                                <option value="2">2nd Priority</option>
+                                <option value="3">3rd Priority</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <label for="rationale1"><h4>Your Rationale</h4></label>
+                    <p>Explain why you ordered these priorities the way you did. What makes your #1 choice the most urgent for a brand-new franchise?</p>
+                    <textarea id="rationale1" class="rationale-input" rows="5" placeholder="Type your rationale here..."></textarea>
+                </div>
+
+                <button id="reveal1" aria-expanded="false" aria-controls="answer1">Compare to an Expert Framework</button>
                 
                 <div id="answer1" class="reveal-box hidden">
-                    <h4>Strategic Framework for New MLS Franchise:</h4>
-                    <p><strong>Priority #1: Hyper-Local Community App</strong><br>
+                    <h4>One Expert's Strategic Framework:</h4>
+                    <p><strong>Hyper-Local Community App</strong><br>
                     Create an app that connects fans to local businesses, player community involvement, and neighborhood pride. New franchises need deep community roots.</p>
                     
-                    <p><strong>Priority #2: Interactive Stadium Technology</strong><br>
+                    <p><strong>Interactive Stadium Technology</strong><br>
                     AR experiences, order-to-seat concessions, instant replays on personal devices. Make the in-stadium experience uniquely high-tech.</p>
                     
-                    <p><strong>Priority #3: Content Creation Platform</strong><br>
+                    <p><strong>Content Creation Platform</strong><br>
                     Behind-the-scenes access, player vlogs, fan-generated content contests. Build emotional connections when you can't rely on winning tradition.</p>
                     
                     <div class="analysis-box">
-                        <p><strong>Why These Work:</strong> They address the new franchise's core challenges - unknown players (content access), no tradition (community focus), and competing entertainment options (technology differentiation).</p>
+                        <p><strong>Why This Framework Works:</strong> It addresses the new franchise's core challenges - unknown players (content access), no tradition (community focus), and competing entertainment options (technology differentiation).</p>
                     </div>
+                    <p class="muted">There's no single correct order here — compare your reasoning to this framework and think about where and why your priorities differ.</p>
                 </div>
             </div>
         </div>
 
         <!-- Activity 2 -->
-        <div id="activity2" class="hidden">
+        <div id="activity2" class="hidden" role="main">
             <button class="back-button" id="back2">← Back to Activities</button>
             <div class="section">
                 <h2>Activity 2: LPGA vs NFL Differentiation Strategy</h2>
                 
                 <div class="interactive-element">
                     <h3>Comparative Analysis Challenge</h3>
-                    <p>Based on the differentiation table from your slides, analyze the strategic implications:</p>
-                    
+                    <p>The positioning map below shows how LPGA and NFL differ on pace of action and fan intimacy. Study it, then analyze the strategic implications:</p>
+
+                    <div class="positioning-map-wrap">
+                        <svg class="positioning-map" viewBox="0 0 640 460" role="img" aria-label="Positioning map with pace of action on the horizontal axis, from slower and methodical to faster and high-energy, and fan intimacy on the vertical axis, from mass and distant to personal and close. LPGA is plotted in the upper-left, indicating slower pace and high personal intimacy. NFL is plotted in the lower-right, indicating faster pace and a more mass, distant experience.">
+                            <rect x="60" y="20" width="280" height="180" fill="#eef2ff"></rect>
+                            <rect x="340" y="20" width="280" height="180" fill="#f8f9fa"></rect>
+                            <rect x="60" y="200" width="280" height="180" fill="#f8f9fa"></rect>
+                            <rect x="340" y="200" width="280" height="180" fill="#eef2ff"></rect>
+
+                            <line x1="60" y1="200" x2="620" y2="200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"></line>
+                            <line x1="340" y1="20" x2="340" y2="380" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"></line>
+
+                            <rect x="60" y="20" width="560" height="360" fill="none" stroke="#334155" stroke-width="2"></rect>
+
+                            <text x="340" y="14" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">Personal / Close</text>
+                            <text x="340" y="454" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">Mass / Distant</text>
+                            <text x="20" y="200" font-size="14" font-weight="700" fill="#334155" transform="rotate(-90 20 200)" text-anchor="middle">Fan Intimacy</text>
+
+                            <text x="65" y="400" font-size="13" fill="#475569">Slower, Methodical</text>
+                            <text x="615" y="400" font-size="13" fill="#475569" text-anchor="end">Faster, High-Energy</text>
+                            <text x="340" y="428" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Pace of Action</text>
+
+                            <circle cx="185" cy="80" r="12" fill="#e91e8c" stroke="#7a0f49" stroke-width="2"></circle>
+                            <text x="185" y="58" font-size="16" font-weight="700" fill="#7a0f49" text-anchor="middle">LPGA</text>
+
+                            <circle cx="500" cy="320" r="12" fill="#123a66" stroke="#0b2444" stroke-width="2"></circle>
+                            <text x="500" y="345" font-size="16" font-weight="700" fill="#0b2444" text-anchor="middle">NFL</text>
+                        </svg>
+                    </div>
+
                     <div class="case-study">
                         <h4>LPGA Advantages:</h4>
                         <ul>
@@ -516,7 +690,7 @@
                         <li><strong>Social fans:</strong> Want shared experiences</li>
                         <li><strong>Purists:</strong> Want skill and strategy</li>
                     </ul>
-                    <button id="reveal2">See Strategic Analysis</button>
+                    <button id="reveal2" aria-expanded="false" aria-controls="answer2">See Strategic Analysis</button>
                 </div>
                 
                 <div id="answer2" class="reveal-box hidden">
@@ -542,7 +716,7 @@
         </div>
 
         <!-- Activity 3 -->
-        <div id="activity3" class="hidden">
+        <div id="activity3" class="hidden" role="main">
             <button class="back-button" id="back3">← Back to Activities</button>
             <div class="section">
                 <h2>Activity 3: Perceptual Mapping Exercise</h2>
@@ -573,7 +747,7 @@
                         <li>What would be the ideal position for FC Cincinnati?</li>
                         <li>How might different fan segments perceive these attributes differently?</li>
                     </ul>
-                    <button id="reveal3">See Positioning Analysis</button>
+                    <button id="reveal3" aria-expanded="false" aria-controls="answer3">See Positioning Analysis</button>
                 </div>
                 
                 <div id="answer3" class="reveal-box hidden">
@@ -590,7 +764,7 @@
         </div>
 
         <!-- Activity 4 -->
-        <div id="activity4" class="hidden">
+        <div id="activity4" class="hidden" role="main">
             <button class="back-button" id="back4">← Back to Activities</button>
             <div class="section">
                 <h2>Activity 4: Innovation Evaluation Framework</h2>
@@ -615,7 +789,7 @@
                         <li><strong>Divisibility:</strong> Can consumers try it in small portions?</li>
                         <li><strong>Communicability:</strong> How easy to explain benefits?</li>
                     </ul>
-                    <button id="reveal4">See Innovation Analysis</button>
+                    <button id="reveal4" aria-expanded="false" aria-controls="answer4">See Innovation Analysis</button>
                 </div>
                 
                 <div id="answer4" class="reveal-box hidden">
@@ -633,7 +807,7 @@
         </div>
 
         <!-- Activity 5 -->
-        <div id="activity5" class="hidden">
+        <div id="activity5" class="hidden" role="main">
             <button class="back-button" id="back5">← Back to Activities</button>
             <div class="section">
                 <h2>Activity 5: Strategic Decision Making - The Extension Dilemma</h2>
@@ -659,7 +833,7 @@
                         <li><strong>Premium Rooftop Experience:</strong> Appeals to corporate groups, affluent die-hards</li>
                         <li><strong>Team History Museum:</strong> Appeals to die-hards, moderate appeal to others</li>
                     </ul>
-                    <button id="reveal5">See Strategic Analysis</button>
+                    <button id="reveal5" aria-expanded="false" aria-controls="answer5">See Strategic Analysis</button>
                 </div>
                 
                 <div id="answer5" class="reveal-box hidden">
@@ -684,7 +858,7 @@
         </div>
 
         <!-- Synthesis Challenge -->
-        <div id="synthesis" class="hidden">
+        <div id="synthesis" class="hidden" role="main">
             <button class="back-button" id="back6">← Back to Activities</button>
             <div class="section">
                 <h2>Synthesis Challenge: Your Strategic Recommendation</h2>
@@ -741,10 +915,26 @@
 
             function updateProgress() {
                 var progressBar = document.getElementById('progressBar');
+                var progressIndicator = document.getElementById('progressIndicator');
                 if (progressBar) {
                     var progress = (completedActivities / totalActivities) * 100;
                     progressBar.style.width = progress + '%';
                 }
+                if (progressIndicator) {
+                    var percent = Math.round((completedActivities / totalActivities) * 100);
+                    progressIndicator.setAttribute('aria-valuenow', String(percent));
+                }
+            }
+
+            // Move keyboard/screen-reader focus to a newly shown section's heading
+            function focusSection(sectionEl) {
+                if (!sectionEl) return;
+                var heading = sectionEl.querySelector('h1, h2, h3');
+                var target = heading || sectionEl;
+                if (!target.hasAttribute('tabindex')) {
+                    target.setAttribute('tabindex', '-1');
+                }
+                target.focus();
             }
 
             // Navigation functions
@@ -770,6 +960,7 @@
                 var selectedActivity = document.getElementById(activityId);
                 if (selectedActivity) {
                     selectedActivity.classList.remove('hidden');
+                    focusSection(selectedActivity);
                 }
             }
 
@@ -789,13 +980,17 @@
                 var mainContent = document.getElementById('main-content');
                 if (mainContent) {
                     mainContent.classList.remove('hidden');
+                    focusSection(mainContent);
                 }
             }
 
-            function revealAnswer(answerId) {
+            function revealAnswer(answerId, buttonEl) {
                 var element = document.getElementById(answerId);
                 if (element) {
                     element.classList.remove('hidden');
+                    if (buttonEl) {
+                        buttonEl.setAttribute('aria-expanded', 'true');
+                    }
                     if (!element.dataset.completed) {
                         completedActivities++;
                         element.dataset.completed = 'true';
@@ -835,10 +1030,26 @@
                     var button = document.getElementById(buttonData.buttonId);
                     if (button) {
                         button.addEventListener('click', function() {
-                            revealAnswer(buttonData.answerId);
+                            revealAnswer(buttonData.answerId, button);
                         });
                     }
                 })(revealButtons[i]);
+            }
+
+            // Prevent duplicate rank assignment within a ranking group
+            var prioritySelects = document.querySelectorAll('.priority-select');
+            for (var i = 0; i < prioritySelects.length; i++) {
+                prioritySelects[i].addEventListener('change', function() {
+                    var group = this.getAttribute('data-group');
+                    var value = this.value;
+                    if (!value) return;
+                    var groupSelects = document.querySelectorAll('.priority-select[data-group="' + group + '"]');
+                    for (var j = 0; j < groupSelects.length; j++) {
+                        if (groupSelects[j] !== this && groupSelects[j].value === value) {
+                            groupSelects[j].value = '';
+                        }
+                    }
+                });
             }
 
             console.log('JavaScript initialization complete');
